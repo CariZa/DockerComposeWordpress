@@ -18,15 +18,21 @@
 
 Create a ".env" file with the following values:
 
-    MYSQL_ROOT_PASSWORD: YOUR_ROOT_PASSWORD_HERE
-    MYSQL_DATABASE: YOUR_DATABASE_NAME_HERE
-    MYSQL_USER: YOUR_MYSQL_USER_HERE
-    MYSQL_PASSWORD: YOUR_MYSQL_PASSWORD_HERE
-    WORDPRESS_DB_HOST: db:3306
-    WORDPRESS_DB_USER: YOUR_MYSQL_USER_HERE
-    WORDPRESS_DB_PASSWORD: YOUR_MYSQL_PASSWORD_HERE
+    MYSQL_ROOT_PASSWORD=YOUR_ROOT_PASSWORD_HERE
+    MYSQL_DATABASE=YOUR_DATABASE_NAME_HERE
+    MYSQL_USER=YOUR_MYSQL_USER_HERE
+    MYSQL_PASSWORD=YOUR_MYSQL_PASSWORD_HERE
+    WORDPRESS_DB_HOST=db:3306
+    WORDPRESS_DB_USER=YOUR_MYSQL_USER_HERE
+    WORDPRESS_DB_PASSWORD=YOUR_MYSQL_PASSWORD_HERE
 
 You shouldn't really have to worry about anything after that. The containers should automatically set up with those details and just run. If you're finding that you still need to tweak these values you may not have pointed to the right file in your docker-compose.yml file.
 
+## Testing
 
+Check that your environment variables were set properly. You can docker exec into the container and echo the variables:
 
+    $ docker exec -it containerid bash
+    $ echo $WORDPRESS_DB_USER
+    
+Get "containerid" by running "docker ps".
